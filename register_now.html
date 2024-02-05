@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register/Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image:url(IMG/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .form-container {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            padding-right: 40px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            animation: fade-in 0.5s;
+            background-image: linear-gradient(to bottom right, #bf7df5, #c049f7);
+        }
+        
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .form-container input[type="submit"] {
+            background-color: #5aec5f;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        
+        .form-container .toggle-form-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .form-container .toggle-form-link a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Register/Login Form</h2>
+            <form id="register-form" action="register.php" method="POST">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Register">
+                <div class="toggle-form-link">
+                    Already have an account? <a href="#" onclick="toggleForm()">Login here</a>
+                </div>
+            </form>
+            
+            <form id="login-form" action="login.php" method="POST" style="display: none;">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+                <div class="toggle-form-link">
+                    Don't have an account? <a href="#" onclick="toggleForm()">Register here</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const registerForm = document.getElementById('register-form');
+            const loginForm = document.getElementById('login-form');
+            
+            registerForm.style.display = (registerForm.style.display === 'none') ? 'block' : 'none';
+            loginForm.style.display = (loginForm.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
